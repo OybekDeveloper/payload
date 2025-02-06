@@ -3,7 +3,9 @@ import Image from 'next/image'
 
 export default async function Products({ params }: any) {
   const { id } = await params // URL'dan kelgan category ID
-  const res = await fetch(`http://localhost:3000/api/products?where[category][equals]=${id}`)
+  const res = await fetch(
+    `https://payload-mbrc.onrender.com/api/products?where[category][equals]=${id}`,
+  )
   const { docs: productsData } = await res.json()
   console.log(productsData)
 
@@ -24,7 +26,7 @@ export default async function Products({ params }: any) {
               width={100}
               height={100}
               alt="Photo"
-              src={`http://localhost:3000${product?.url}`}
+              src={`https://payload-mbrc.onrender.com${product?.url}`}
             />
             <h6>{product?.name}</h6>
             <p>{product?.description}</p>
