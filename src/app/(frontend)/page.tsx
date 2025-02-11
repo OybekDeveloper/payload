@@ -10,7 +10,7 @@ interface CategoryType {
   url: string
 }
 export default async function HomePage() {
-  const categories = await fetch('https://payload-mbrc.onrender.com/api/categories')
+  const categories = await fetch('http://localhost:3000/api/categories')
   const { docs: categoriesData } = await categories.json()
   console.log(categoriesData)
 
@@ -31,7 +31,7 @@ export default async function HomePage() {
               width={100}
               alt="Photo"
               height={100}
-              src={`https://payload-mbrc.onrender.com${ct?.url}`}
+              src={`http://localhost:3000${ct?.url}`}
             />
             <h6>{ct?.name}</h6>
             <p>{ct?.desc}</p>
